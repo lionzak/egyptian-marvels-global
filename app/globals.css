@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  z-index: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/images/bg.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transform: scaleX(-1);
+  z-index: -2;
+}
+
+/* Mobile-specific background adjustments */
+@media (max-width: 768px) {
+  body::before {
+    background-attachment: scroll; /* Better performance on mobile */
+    background-size: cover;
+  }
+}
+
+.background-overlay::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+/* Custom responsive utilities for model viewer */
+.model-viewer-container {
+  width: 100%;
+  height: 14rem; /* Smaller on mobile */
+}
+
+@media (min-width: 480px) {
+  .model-viewer-container {
+    height: 16rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .model-viewer-container {
+    height: 20rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .model-viewer-container {
+    height: 24rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .model-viewer-container {
+    height: 28rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .model-viewer-container {
+    height: auto;
+  }
+}
+
+/* Ensure touch targets are large enough on mobile */
+@media (max-width: 768px) {
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Map container responsive adjustments */
+.map-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1.2; /* Adjust based on your map image */
+}
+
+@media (min-width: 640px) {
+  .map-container {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+@media (min-width: 768px) {
+  .map-container {
+    aspect-ratio: 1.2 / 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .map-container {
+    aspect-ratio: 1.4 / 1;
+  }
+}
+
+/* Map pin responsive scaling */
+.map-pin {
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease;
+}
+
+@media (max-width: 480px) {
+  .map-pin {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+@media (max-width: 768px) {
+  .map-pin {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* Stats grid responsive */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 480px) {
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Side panel responsive */
+@media (max-width: 768px) {
+  .side-panel {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: auto;
+    max-height: 70vh;
+    border-radius: 1rem 1rem 0 0;
+  }
+}
+
+/* Responsive text scaling */
+@media (max-width: 480px) {
+  .title-responsive {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 640px) {
+  .title-responsive {
+    font-size: 1.75rem;
+    line-height: 1.3;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .title-responsive {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .title-responsive {
+    font-size: 2.25rem;
+    line-height: 1.3;
+  }
+}
+
+@media (min-width: 1025px) {
+  .title-responsive {
+    font-size: 2.5rem;
+    line-height: 1.3;
+  }
+}
