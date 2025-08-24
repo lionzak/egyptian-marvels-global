@@ -141,10 +141,7 @@ export default function LandingPage() {
         </Link>
       </section>
 
-      {/* Footer */}
-      <footer className="text-center text-sm py-6 text-gray-600 bg-white">
-        {(t.footer as (year: number) => string)(new Date().getFullYear())}
-      </footer>
+      
     </div>
   )
 }
