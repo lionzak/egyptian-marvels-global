@@ -3,9 +3,8 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import GlobalAudioPlayer from '@/components/GlobalAudioPlayer';
-import { LanguageProvider, useLanguage } from '@/i18n/languageContext';
+import { LanguageProvider } from '@/i18n/languageContext';
 import ClientProtections from './ClientProtections';
-import { uiTranslations } from '@/locales/ui';
 
 const inter = Inter({ subsets: ['latin'] });
 
