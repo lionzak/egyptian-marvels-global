@@ -1,4 +1,4 @@
-// components/SidePanel.tsx (modified)
+// components/SidePanel.tsx
 import { Site } from "@/data/sites";
 import { X } from "lucide-react";
 import { useEffect, useState } from "react";

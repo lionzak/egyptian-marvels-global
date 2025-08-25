@@ -1,4 +1,4 @@
-// app/map/page.tsx (modified)
+// app/map/page.tsx
 'use client'
 import React, { useState, useRef, useEffect } from 'react';
 import { ArrowLeft } from 'lucide-react';

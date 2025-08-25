@@ -1,4 +1,4 @@
-// app/artifacts/page.tsx (modified)
+// app/artifacts/page.tsx
 'use client'
 import { useState } from 'react'
 import { getArtifacts } from '@/data/artifacts'

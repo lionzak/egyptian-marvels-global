@@ -1,4 +1,4 @@
-// app/page.tsx (modified)
+// app/page.tsx
 'use client'
 
 import Link from 'next/link'
@@ -17,13 +17,14 @@ export default function LandingPage() {
       <div className="fixed top-2 right-2 z-50">
         <select
           value={language}
-          onChange={(e) => setLanguage(e.target.value as 'en' | 'ru' | 'fr' | 'de')}
+          onChange={(e) => setLanguage(e.target.value as 'en' | 'ru' | 'fr' | 'de' | 'ar')}
           className="bg-white border border-gray-300 rounded-md px-2 py-1 text-sm"
         >
           <option value="en">English</option>
           <option value="ru">Русский</option>
           <option value="fr">Français</option>
           <option value="de">Deutsch</option>
+          <option value="ar">العربية</option>
         </select>
       </div>
 
@@ -141,7 +142,10 @@ export default function LandingPage() {
         </Link>
       </section>
 
-      
+      {/* Footer */}
+      <footer className="text-center text-sm py-6 text-gray-600 bg-white">
+        {(t.footer as (year: number) => string)(new Date().getFullYear())}
+      </footer>
     </div>
   )
 }

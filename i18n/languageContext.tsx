@@ -3,7 +3,7 @@
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-export type Language = 'en' | 'ru' | 'fr' | 'de';
+export type Language = 'en' | 'ru' | 'fr' | 'de' | 'ar';
 
 interface LanguageContextType {
   language: Language;
@@ -20,7 +20,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const stored = localStorage.getItem('language') as Language | null;
-    if (stored && ['en', 'ru', 'fr', 'de'].includes(stored)) {
+    if (stored && ['en', 'ru', 'fr', 'de', 'ar'].includes(stored)) {
       setLanguage(stored);
     }
   }, []);
@@ -28,6 +28,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const handleSetLanguage = (lang: Language) => {
     setLanguage(lang);
     localStorage.setItem('language', lang);
+    // Set document direction for RTL languages
+    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
   };
 
   return (

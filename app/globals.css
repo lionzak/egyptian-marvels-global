@@ -1,4 +1,8 @@
+/* Font for Arabic */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&display=swap');
+
 @import "tailwindcss";
+
 
 :root {
   --background: #ffffff;
@@ -212,4 +216,82 @@ body::before {
     font-size: 2.5rem;
     line-height: 1.3;
   }
+}
+
+/* RTL support for Arabic */
+html[dir="rtl"] {
+  text-align: right;
+}
+
+html[dir="rtl"] .text-left {
+  text-align: right;
+}
+
+html[dir="rtl"] .text-right {
+  text-align: left;
+}
+
+html[dir="rtl"] .flex-row {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .justify-between {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .absolute.top-2.left-2,
+html[dir="rtl"] .absolute.top-4.left-4,
+html[dir="rtl"] .absolute.top-6.left-6 {
+  left: auto;
+  right: 2rem; /* Adjust as needed */
+}
+
+html[dir="rtl"] .absolute.top-2.right-2,
+html[dir="rtl"] .absolute.bottom-4.right-4 {
+  right: auto;
+  left: 2rem; /* Adjust as needed */
+}
+
+html[dir="rtl"] .absolute.right-0 {
+  right: auto;
+  left: 0;
+}
+
+html[dir="rtl"] .absolute.left-2 {
+  left: auto;
+  right: 2rem;
+}
+
+html[dir="rtl"] .rounded-l-2xl {
+  border-top-left-radius: 0;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  border-bottom-left-radius: 0;
+}
+
+html[dir="rtl"] .rounded-tl-2xl {
+  border-top-left-radius: 0;
+  border-top-right-radius: 1.5rem;
+}
+
+html[dir="rtl"] .translate-x-full {
+  transform: translateX(-100%);
+}
+
+html[dir="rtl"] .translate-x-0 {
+  transform: translateX(0);
+}
+
+html[dir="rtl"] .ml-auto {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+html[dir="rtl"] .mr-auto {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+html[dir="rtl"] {
+  font-family: 'Noto Sans Arabic', sans-serif;
 }
